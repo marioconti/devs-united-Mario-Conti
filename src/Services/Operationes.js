@@ -25,7 +25,7 @@ export const getDocument = (coll, id) => {
 };
 
 export const upDate = async (coll, id, data) => {
-  // referencia al documento
+  // referencia al documentos
   const docRef = getDocument(coll, id);
   await updateDoc(docRef, data);
 };
