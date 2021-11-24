@@ -1,9 +1,12 @@
-import './App.css';
+import "./App.css";
+import { CreateTweet } from "../src/Components/CreateTweet/index";
+import { TweetList } from "./Components/TweetList/index";
 
 function App() {
   return (
     <div>
-      hola mundo
+      <CreateTweet />
+      <TweetList />
     </div>
   );
 }

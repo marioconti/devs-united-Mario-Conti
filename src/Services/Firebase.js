@@ -1,15 +1,17 @@
-import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-// Your web app's Firebase configuration
+
+import { initializeApp } from "firebase/app";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCQDMwYg9c_Rlm9ZRt4oIq75wQLjCP8urE",
-  authDomain: "tweets-1f586.firebaseapp.com",
-  projectId: "tweets-1f586",
-  storageBucket: "tweets-1f586.appspot.com",
-  messagingSenderId: "9793205085",
-  appId: "1:9793205085:web:9973e580f612ae4b452eb4"
+  apiKey: "AIzaSyBNOhO3jr9NTyw6yoUtCCfGslVAaDZLpY0",
+  authDomain: "devs-united-mario-conti.firebaseapp.com",
+  projectId: "devs-united-mario-conti",
+  storageBucket: "devs-united-mario-conti.appspot.com",
+  messagingSenderId: "443893937266",
+  appId: "1:443893937266:web:a68b84da05dd8cc5dc7eeb",
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+// data base
 export const db = getFirestore(app);
