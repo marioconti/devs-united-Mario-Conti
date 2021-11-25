@@ -7,5 +7,9 @@ export const useInput = () => {
     setInput(e.target.value)
   };
 
-  return [input, handleChange];
+  const clearInput = ()=>{
+    setInput("")
+  }
+
+  return [input, handleChange, clearInput];
 };

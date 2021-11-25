@@ -1,12 +1,11 @@
 import { useInput } from "../../Hooks/useInput";
 import { addData } from "../../Services/Operationes";
 
-
 export const CreateTweet = () => {
-  const [tweet, handleTweet] = useInput();
-  const [autor, handleAutor] = useInput();
+  const [tweet, handleTweet, clearTweet] = useInput("");
+  const [autor, handleAutor, clearAutor] = useInput("");
 
-  const handleSendTweet = async () => {
+  const handleSendTweet = () => {
     // Aquí creamos un objeto que corresponderá a la data que agregaremos a la colección
     const dataTweet = {
       tweet,
@@ -15,6 +14,8 @@ export const CreateTweet = () => {
       // si aquí agregamos otra propiedad que no esté presente en la base de datos se agrega. Ej. id
     };
     addData("tweets", dataTweet);
+    clearTweet();
+    clearAutor();
   };
 
   return (
