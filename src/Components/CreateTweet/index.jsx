@@ -19,13 +19,14 @@ export const CreateTweet = () => {
   };
 
   return (
-    <div>
+    <form action="#">
       <h1>Twitter Devs</h1>
       <textarea
         onChange={handleTweet}
         type="text"
         value={tweet}
         placeholder="Escribe un tweet"
+        required
       ></textarea>
       <input
         onChange={handleAutor}
@@ -33,7 +34,13 @@ export const CreateTweet = () => {
         value={autor}
         placeholder="Escribe tu nombre aquí"
       ></input>
-      <button onClick={handleSendTweet}>Enviar</button>
-    </div>
+      <button
+        type="submit"
+        onClick={handleSendTweet}
+        //FIXME: como hacemos que solo se pueda enviar si está completo { = 0 && "disabled"}. ¿Cómo accedo al valor de los inputos para hacer un condicional
+      >
+        Enviar
+      </button>
+    </form>
   );
 };

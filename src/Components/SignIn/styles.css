@@ -1,0 +1,68 @@
+.login-container {
+  align-items: center;
+  display: flex;
+  height: 80vh;
+}
+
+.logo-container,
+.section-credentials {
+  width: 50%;
+}
+
+.logo-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 650px;
+}
+
+.section-credentials,
+.container-contain {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* SECTION LOGIN */
+
+.container-contain {
+  align-items: flex-start;
+  width: 50%;
+}
+
+.titulo-signIn {
+  font-family: Silkscreen;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+
+
+.button-google {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 50%;
+}
+/* ========================================================== */
+
+/* SECTION REGISTER */
+
+
+/* ========================================================== */
+
+
+.text-footer {
+  bottom: -140px;
+  height: 12px;
+  position: absolute;
+}
+
+
+@font-face {
+  font-family: Silkscreen;
+  src: url(../../Assets//Fonts/Silkscreen/slkscr.ttf);
+}
