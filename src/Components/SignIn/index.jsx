@@ -3,6 +3,7 @@ import "./styles.css";
 import { ReactComponent as Logo } from "../../Assets/SVGS/logo.svg";
 import { ReactComponent as SignInButton } from "../../Assets/SVGS/sing-in-google.svg";
 import { ReactComponent as TextFooter } from "../../Assets/SVGS/text-footer.svg";
+
 export const SignIn = () => {
   return (
     <>
@@ -11,9 +12,31 @@ export const SignIn = () => {
           <Logo className="logo" />
         </div>
         <div className="section-credentials">
-
-
-
+          {/* SECTION REGISTER */}
+          <div className="container-contain">
+            <div className="welcome-text">
+              WELCOME
+              <br /> <span>NAME!</span>
+            </div>
+            <input
+              className="type-username"
+              type="text"
+              placeholder="Type your username"
+            />
+          </div>
+          <div className="favorite-color">
+            <p className="text-favorite-color">Select your favorite color</p>
+            <div className="container-colors">
+              <div className="box red"></div>
+              <div className="box orange"></div>
+              <div className="box yellow"></div>
+              <div className="box green"></div>
+              <div className="box blue"></div>
+              <div className="box purple"></div>
+            </div>
+            <button className="button-continue">CONTINUE</button>
+          </div>
+          {/* ///////////////////////////////////////////// */}
           {/* SECTION LOGIN */}
           {/* <div className="container-contain">
             <h1 className="titulo-signIn">

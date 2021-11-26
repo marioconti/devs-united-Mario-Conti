@@ -32,7 +32,7 @@ export const CreateTweet = () => {
         onChange={handleAutor}
         type="text"
         value={autor}
-        placeholder="Escribe tu nombre aquí"
+        placeholder="Type your username" // este input no hará falta
       ></input>
       <button
         type="submit"
