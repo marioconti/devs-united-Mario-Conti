@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { onSnapshot } from "firebase/firestore";
-import { deleteData } from "../../Services/Operationes";
-import { getCollection } from "../../Services/Operationes";
+import { deleteData } from "../../../Services/Operationes";
+import { getCollection } from "../../../Services/Operationes";
 
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);

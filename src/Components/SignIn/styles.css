@@ -121,6 +121,7 @@
 .button-continue {
   background-color: #00da76;
   border: none;
+  cursor:pointer;
   font-family: Silkscreen;
   font-weight: 700;
   font-size: 16px;

@@ -1,5 +1,5 @@
-import { useInput } from "../../Hooks/useInput";
-import { addData } from "../../Services/Operationes";
+import { useInput } from "../../../Hooks/useInput";
+import { addData } from "../../../Services/Operationes";
 
 export const CreateTweet = () => {
   const [tweet, handleTweet, clearTweet] = useInput("");
@@ -26,7 +26,6 @@ export const CreateTweet = () => {
         type="text"
         value={tweet}
         placeholder="Escribe un tweet"
-        required
       ></textarea>
       <input
         onChange={handleAutor}
