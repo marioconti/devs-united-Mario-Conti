@@ -6,15 +6,15 @@ export const Nav = () => {
   return (
     <div className="nav">
       <div className="contain-nav">
-        <div className="image">
+        <a href="#" className="image">
           <Photo className="photo" />
-        </div>
+        </a>
         <a className="logo-nav" href="#">
           <Logonav className="logo-svg" />
         </a>
-        <h1 className="text-nav">
+        <a href="#" className="text-nav">
           DEVS_<span>UNITED</span>
-        </h1>
+        </a>
       </div>
     </div>
   );

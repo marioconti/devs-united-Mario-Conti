@@ -39,7 +39,7 @@ export const TweetList = () => {
             <div className="post-info">
               <div className="user-name-date">
                 <div className="flex-row">
-                  <div className="user-name">USERNAME</div>
+                  <a href="#" className="user-name">USERNAME</a>
                   <p className="date">- 5 jun.</p>
                 </div>
                 <button

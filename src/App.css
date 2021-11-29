@@ -10,8 +10,10 @@ html {
   box-sizing: inherit;
   font-family: "Fira Code", monospace;
   color: #ffff;
+  text-decoration: none;
 }
 
 body {
   background-color: #2e132c;
 }
+
