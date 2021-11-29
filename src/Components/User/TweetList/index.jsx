@@ -1,7 +1,10 @@
+import "./styles.css";
 import { useEffect, useState } from "react";
 import { onSnapshot } from "firebase/firestore";
 import { deleteData } from "../../../Services/Operationes";
 import { getCollection } from "../../../Services/Operationes";
+import { ReactComponent as Like } from "../../../Assets/SVGS/like.svg";
+import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
 
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
@@ -25,14 +28,20 @@ export const TweetList = () => {
 
   return (
     <div>
-      <h1>Lista de Tweets</h1>
       {listaTweets.map((tweet) => {
         return (
           <>
             <h3>{tweet.tweet}</h3>
             <h1>{tweet.autor}</h1>
-            <button>Like</button>
-            <button onClick={() => handleRemove(tweet.id)}>Remove</button>
+            <button className="like-svg">
+              <Like class="like" />
+            </button>
+            <button
+              className="trush-svg"
+              onClick={() => handleRemove(tweet.id)}
+            >
+              <Trush />
+            </button>
           </>
         );
       })}

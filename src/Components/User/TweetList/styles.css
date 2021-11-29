@@ -1,0 +1,16 @@
+.like-svg,
+.trush-svg {
+  background-color: rgba(0, 128, 0, 0);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trush-svg {
+  cursor: pointer;
+}
+
+.like-svg .like {
+  width: 20px;
+}
