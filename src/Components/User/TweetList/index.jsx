@@ -4,7 +4,9 @@ import { onSnapshot } from "firebase/firestore";
 import { deleteData } from "../../../Services/Operationes";
 import { getCollection } from "../../../Services/Operationes";
 import { ReactComponent as Like } from "../../../Assets/SVGS/like.svg";
+import { ReactComponent as Unlike } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
+import { ReactComponent as Photo } from "../../../Assets/SVGS/photo.svg";
 
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
@@ -30,19 +32,35 @@ export const TweetList = () => {
     <div>
       {listaTweets.map((tweet) => {
         return (
-          <>
-            <h3>{tweet.tweet}</h3>
-            <h1>{tweet.autor}</h1>
-            <button className="like-svg">
-              <Like class="like" />
-            </button>
-            <button
-              className="trush-svg"
-              onClick={() => handleRemove(tweet.id)}
-            >
-              <Trush />
-            </button>
-          </>
+          <div className="tweet-container">
+            <div className="image-profile">
+              <Photo className="photo-profile" />
+            </div>
+            <div className="post-info">
+              <div className="user-name-date">
+                <div className="flex-row">
+                  <div className="user-name">USERNAME</div>
+                  <p className="date">- 5 jun.</p>
+                </div>
+                <button
+                  className="trush-svg"
+                  onClick={() => handleRemove(tweet.id)}
+                >
+                  <Trush />
+                </button>
+              </div>
+              <div className="tweet-post">
+                <p>{tweet.tweet}</p>
+              </div>
+              <div className="likes-container">
+                <button className="like-svg">
+                  {/* <Unlike className="unlike" /> */}
+                  <Like className="like" />
+                </button>
+                <p>100</p>
+              </div>
+            </div>
+          </div>
         );
       })}
     </div>

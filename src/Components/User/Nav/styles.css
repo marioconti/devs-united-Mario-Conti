@@ -1,0 +1,48 @@
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.contain-nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  margin: 0 20px;
+  width: 400px;
+}
+
+.image,
+.photo {
+  border-radius: 50px;
+  height: 25px;
+  margin-left: 7px;
+  width: 90px;
+}
+.photo {
+  border: 2px solid #ffea5c;
+  width: 25px;
+}
+
+.logo-nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+}
+
+.text-nav,
+.text-nav span {
+  font-family: Silkscreen;
+  font-size: 10px;
+}
+
+.text-nav {
+  color: #f50d5a;
+  font-weight: lighter;
+}
+
+.text-nav span {
+  font-weight: bold;
+}

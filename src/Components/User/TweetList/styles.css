@@ -1,16 +1,105 @@
-.like-svg,
+.tweet-container {
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  margin: 15px auto;
+  position: relative;
+  width: 400px;
+}
+
+.post-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.user-name-date {
+  align-items: center;
+  display: flex;
+  font-size: 10px;
+  justify-content: space-between;
+  width: 340px;
+}
+
+.flex-row {
+  display: flex;
+}
+.user-name {
+  display: flex;
+  align-items: center;
+  font-family: Silkscreen;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  height: 25px;
+  margin: auto;
+  letter-spacing: -0.333333px;
+  padding: 5px;
+  background-color: #9920ac;
+}
+
+.date {
+  margin: auto;
+  margin-left: 10px;
+}
+
+.image-profile {
+  display: flex;
+  margin-bottom: auto;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo-profile {
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}
+
+.tweet-post {
+  font-size: 10px;
+  width: 340px;
+  line-height: 18px;
+}
+
 .trush-svg {
+  align-items: center;
   background-color: rgba(0, 128, 0, 0);
   border: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 25px;
 }
 
-.trush-svg {
+.trush-svg,
+.like,
+.unlike {
   cursor: pointer;
 }
 
-.like-svg .like {
-  width: 20px;
+.likes-container {
+  display: flex;
+  margin-right: auto;
+}
+
+.like-svg {
+  background-color: inherit;
+  border: none;
+}
+
+.like-svg .like,
+.like-svg .unlike {
+  outline: none;
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: auto;
+}
+
+.likes-container p {
+  margin-left: 5px;
+  font-size: 10px;
 }
