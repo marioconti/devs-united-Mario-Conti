@@ -1,13 +1,15 @@
+import React, { useContext } from "react";
 import "./styles.css";
-import React from "react";
 import { ReactComponent as Logonav } from "../../../Assets/SVGS/logo-nav.svg";
-import { ReactComponent as Photo } from "../../../Assets/SVGS/photo.svg";
+import { userContext } from "../../../Context/userProvider";
+
 export const Nav = () => {
+  const { photoURL } = useContext(userContext);
   return (
     <div className="nav">
       <div className="contain-nav">
         <a href="#" className="image">
-          <Photo className="photo" />
+          <img src={photoURL} className="photo" alt="profile image" />
         </a>
         <a className="logo-nav" href="#">
           <Logonav className="logo-svg" />

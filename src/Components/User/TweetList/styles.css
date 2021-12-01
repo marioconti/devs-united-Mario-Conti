@@ -1,5 +1,6 @@
 .tweet-container {
   align-items: center;
+  border-bottom: 2px solid #60265b;
   display: flex;
   height: auto;
   justify-content: space-between;
@@ -53,14 +54,14 @@
   margin-right: auto;
 }
 
-.photo-profile {
+.photo-profile{
   border-radius: 50px;
   height: 40px;
   width: 40px;
 }
 
 .tweet-post {
-  font-size: 10px;
+  font-size: 12px;
   width: 340px;
   line-height: 18px;
 }

@@ -1,11 +1,13 @@
 .form-container {
+  align-items: center;
   background-color: #150714;
+  border-bottom: 2px solid #60265b;
   display: flex;
+  flex-direction: column;
   height: 190px;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
   position: relative;
+
   /* FIXME:porq no se completa el 100% del ancho */
 }
 
@@ -33,15 +35,16 @@
   margin-right: 5px;
   height: 100px;
   outline: none;
+  padding-top: 8px;
+  padding-left: 10px;
   resize: none;
   width: 340px;
 }
 
-.text-tweet::placeholder,
-.text-tweet {
+.text-tweet::placeholder {
   color: #914d8b;
-  padding-left: 8px;
-  padding-top: 5px;
+  padding-left: 2px;
+  padding-top: 2px;
 }
 
 .create-tweet-post {

@@ -6,17 +6,19 @@
 
 .logo-container,
 .section-credentials {
-  width: 50%;
+  width:50%;
 }
 
 .logo-container {
   align-items: center;
   display: flex;
   justify-content: center;
+  width: 650px;
 }
 
 .logo {
-  width: 650px;
+  height: 265px;
+  margin-top: 20px;
 }
 
 .section-credentials,
@@ -121,7 +123,7 @@
 .button-continue {
   background-color: #00da76;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   font-family: Silkscreen;
   font-weight: 700;
   font-size: 16px;

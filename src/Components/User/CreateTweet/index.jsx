@@ -1,22 +1,23 @@
+import React, { useContext } from "react";
+import { userContext } from "../../../Context/userProvider";
 import "./styles.css";
 import { useInput } from "../../../Hooks/useInput";
 import { addData } from "../../../Services/Operationes";
-import { ReactComponent as Photo } from "../../../Assets/SVGS/photo.svg";
-export const CreateTweet = () => {
-  const [tweet, handleTweet, clearTweet] = useInput("");
-  const [autor, handleAutor, clearAutor] = useInput("");
 
-  const handleSendTweet = () => {
+export const CreateTweet = () => {
+  const { displayName, photoURL } = useContext(userContext);
+
+  const [tweet, handleTweet, clearTweet] = useInput("");
+
+  const handleSendTweet = async () => {
     // Aquí creamos un objeto que corresponderá a la data que agregaremos a la colección
     const dataTweet = {
       tweet,
-      autor,
       // Aquí solo ponemos el nombre de la propiedad porque es el mismo que está en la base de datos
       // si aquí agregamos otra propiedad que no esté presente en la base de datos se agrega. Ej. id
     };
-    addData("tweets", dataTweet);
+    await addData("tweets", dataTweet, { user: displayName });
     clearTweet();
-    clearAutor();
   };
 
   return (
@@ -24,7 +25,7 @@ export const CreateTweet = () => {
       <div className="creat-tweet-container">
         <div className="create-tweet-area">
           <div className="image-profile">
-            <Photo className="photo-profile" />
+            <img src={photoURL} className="photo-profile" alt="image profile" />
           </div>
           <textarea
             className="text-tweet"

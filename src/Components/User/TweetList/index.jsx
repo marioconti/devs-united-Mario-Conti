@@ -1,15 +1,16 @@
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { userContext } from "../../../Context/userProvider";
 import { onSnapshot } from "firebase/firestore";
 import { deleteData } from "../../../Services/Operationes";
 import { getCollection } from "../../../Services/Operationes";
 import { ReactComponent as Like } from "../../../Assets/SVGS/like.svg";
-import { ReactComponent as Unlike } from "../../../Assets/SVGS/unlike.svg";
+// import { ReactComponent as Unlike } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
-import { ReactComponent as Photo } from "../../../Assets/SVGS/photo.svg";
 
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
+  const {photoURL, displayName } = useContext(userContext);
 
   useEffect(async () => {
     const unSuscribe = await onSnapshot(getCollection("tweets"), (data) => {
@@ -34,12 +35,14 @@ export const TweetList = () => {
         return (
           <div className="tweet-container">
             <div className="image-profile">
-              <Photo className="photo-profile" />
+              <img src={photoURL} className="photo-profile" alt="profile image" />
             </div>
             <div className="post-info">
               <div className="user-name-date">
                 <div className="flex-row">
-                  <a href="#" className="user-name">USERNAME</a>
+                  <a href="#" className="user-name">
+                    {displayName}
+                  </a>
                   <p className="date">- 5 jun.</p>
                 </div>
                 <button
