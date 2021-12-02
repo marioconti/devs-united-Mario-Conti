@@ -4,7 +4,7 @@
   border-bottom: 2px solid #60265b;
   display: flex;
   flex-direction: column;
-  height: 190px;
+  height: 240px;
   justify-content: center;
   position: relative;
 
@@ -33,12 +33,15 @@
   background-color: #2f112d;
   border: none;
   margin-right: 5px;
-  height: 100px;
+  height: 125px;
   outline: none;
   padding-top: 8px;
   padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 5px;
   resize: none;
   width: 340px;
+  overflow: auto;
 }
 
 .text-tweet::placeholder {
@@ -55,7 +58,7 @@
 
 .counter-words {
   font-size: 12px;
-  line-height: 18px;
+  line-height: 20px;
   letter-spacing: -0.333333px;
   margin: 0;
 }
@@ -63,7 +66,7 @@
 .max-words {
   color: #f50d5a;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 22px;
   margin: 0;
   text-align: right;
   letter-spacing: -0.333333px;
@@ -78,10 +81,10 @@
   font-weight: bold;
   font-size: 18px;
   height: 25px;
+  letter-spacing: -0.333333px;
   line-height: 18px;
   margin-left: auto;
   margin-right: 5px;
-  letter-spacing: -0.333333px;
   outline: none;
   width: 80px;
 }

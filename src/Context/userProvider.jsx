@@ -6,8 +6,8 @@ export const userContext = createContext();
 // en children pasamos lo que vamos a desestructurar
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-
-  useEffect(async () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect ( async ()  => {
     const unsubscribe = await handleAuthChange((user) => {
       if (user) {
         setUser(user);

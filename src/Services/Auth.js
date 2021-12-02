@@ -5,16 +5,34 @@ import {
   signOut as _signOut,
 } from "firebase/auth";
 import { auth } from "./Firebase";
+import { setDoc } from "@firebase/firestore";
+import { getDocument, getDataById } from "./Operationes";
 
-// Este va a ser el que nos va a proveer la data
+// Proveedor de la data con logeo por google
 const provider = new GoogleAuthProvider();
 
-// Generador de popup para logearnos
+export const addUserToFirestore = async (user) => {
+  const { uid, displayName, email, photoURL } = user;
+  const docRef = getDocument("users", uid);
+  // FIXME: NO entiendo bien como funciona esto getDataById
+  // esto nos atrae el usuario para ver si esta en la base de datos?
+  const userExist = await getDataById("users", uid);
+  // si no está hacemos un setDoc con lo que queremos que tenga
+  if (!userExist) {
+    await setDoc(docRef, {
+      name: displayName,
+      email: email,
+      photo: photoURL,
+    });
+  }
+};
+
+// Generador de popUp para logearse
 export const signIn = async () => {
   try {
     const userCredentials = await signInWithPopup(auth, provider);
+    addUserToFirestore(userCredentials.user);
     return userCredentials.user;
-    // FIXME: porque ponemos el .user?
   } catch (err) {
     console.log(err.message);
   }

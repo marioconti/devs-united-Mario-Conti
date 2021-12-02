@@ -2,6 +2,7 @@ import { db } from "./Firebase";
 import {
   collection,
   doc,
+  getDoc,
   addDoc,
   updateDoc,
   deleteDoc,
@@ -30,4 +31,13 @@ export const addData = async (coll, data) => {
   const collectionRef = getCollection(coll);
   const docRef = await addDoc(collectionRef, data);
   return docRef;
+};
+
+// GET DATA
+// Obtener data por id
+export const getDataById = async (coll, id) => {
+  const docRef = getDocument(coll, id);
+  const snapData = await getDoc(docRef);
+  const data = snapData.data();
+  return data;
 };
