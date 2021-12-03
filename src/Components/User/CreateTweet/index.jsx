@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
 import "./styles.css";
@@ -6,18 +7,26 @@ import { addData } from "../../../Services/Operationes";
 
 export const CreateTweet = () => {
   const { displayName, photoURL, uid } = useContext(userContext);
-
-  const [tweet, handleTweet, clearTweet] = useInput("");
+  const [tweet, handleTweet, clearTweet] = useInput(null);
+  const CHAR_LIMIT = 200;
 
   const handleSendTweet = async () => {
     // Aquí creamos un objeto que corresponderá a la data que agregaremos a la colección
-    
-      // Aquí solo ponemos el nombre de la propiedad porque es el mismo que está en la base de datos
-      // si aquí agregamos otra propiedad que no esté presente en la base de datos se agrega. Ej. id
-  
-    await addData("tweets", { tweet, name: displayName, uid, photo: photoURL });
+
+    // Aquí solo ponemos el nombre de la propiedad porque es el mismo que está en la base de datos
+    // si aquí agregamos otra propiedad que no esté presente en la base de datos se agrega. Ej. id
+
+    await addData("tweets", {
+      tweet,
+      name: displayName,
+      uid,
+      photo: photoURL,
+      likes: 0,
+    });
     clearTweet();
   };
+
+  const calculatePercentage = () => (tweet.length / CHAR_LIMIT) * 100;
 
   return (
     <form className="form-container" action="#">
@@ -26,14 +35,22 @@ export const CreateTweet = () => {
           <div className="image-profile">
             <img src={photoURL} className="photo-profile" alt="image profile" />
           </div>
-          <textarea
-            className="text-tweet"
-            onChange={handleTweet}
-            type="text"
-            value={tweet}
-            placeholder="What’s happening?"
-            maxLength="200"
-          ></textarea>
+          <div className="text-area">
+            <textarea
+              className="text-tweet"
+              onChange={handleTweet}
+              type="text"
+              value={tweet}
+              placeholder="What’s happening?"
+              maxLength="200"
+            ></textarea>
+            <div className="progress-wrapper">
+              <div
+                className="progress-bar"
+                style={{ width: `${calculatePercentage()}%` }}
+              ></div>
+            </div>
+          </div>
         </div>
         <div className="create-tweet-post">
           <p className="counter-words">17</p>

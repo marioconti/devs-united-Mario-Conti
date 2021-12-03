@@ -1,20 +1,20 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import "./styles.css";
 import { useEffect, useState, useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
 import { onSnapshot } from "firebase/firestore";
-import { deleteData } from "../../../Services/Operationes";
-import { getCollection } from "../../../Services/Operationes";
+import { deleteData, updateData } from "../../../Services/Operationes";
+import { getCollection, getDataById } from "../../../Services/Operationes";
 // import { ReactComponent as Like } from "../../../Assets/SVGS/like.svg";
 import { ReactComponent as Unlike } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
 
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
-
-  const { photoURL, displayName, uid } = useContext(userContext);
-
-  useEffect(async () => {
-    const unSuscribe = await onSnapshot(getCollection("tweets"), (data) => {
+  const { uid } = useContext(userContext);
+  useEffect(() => {
+    const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
       setListaTweets(
         data.docs.map((doc) => {
           return { ...doc.data(), id: doc.id };
@@ -30,6 +30,12 @@ export const TweetList = () => {
     deleteData("tweets", id);
   };
 
+  // const handleLikes = async () => {
+  //   const likesCounter = likes ? likes + 1 : 1;
+  //   await updateData("tweets", id, { likes: likesCounter });
+  //   // return countLikes;
+  // };
+
   return (
     <div>
       {listaTweets.map((tweet) => {
@@ -37,7 +43,7 @@ export const TweetList = () => {
           <div className="tweet-container">
             <div className="image-profile">
               <img
-                src={photoURL}
+                src={tweet.photo}
                 className="photo-profile"
                 alt="profile image"
               />
@@ -46,7 +52,7 @@ export const TweetList = () => {
               <div className="user-name-date">
                 <div className="flex-row">
                   <a href="#" className="user-name">
-                    {displayName}
+                    {tweet.name}
                   </a>
                   <p className="date">- 5 jun.</p>
                 </div>
@@ -63,11 +69,12 @@ export const TweetList = () => {
                 <p>{tweet.tweet}</p>
               </div>
               <div className="likes-container">
-                <button className="like-svg">
+                <button className="like-svg" onClick={() => {}}>
                   <Unlike className="unlike" />
+
                   {/* <Like className="like" /> */}
                 </button>
-                <p>0</p>
+                <p>{}</p>
               </div>
             </div>
           </div>

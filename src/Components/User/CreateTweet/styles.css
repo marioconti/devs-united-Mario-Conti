@@ -50,6 +50,18 @@
   padding-top: 2px;
 }
 
+.progress-wrapper {
+  width: 340px;
+  position: relative;
+}
+
+.progress-bar {
+  background-color: #00da76;
+  bottom: 6px;
+  height: 2px;
+  position: absolute;
+}
+
 .create-tweet-post {
   width: 340px;
   margin-left: auto;

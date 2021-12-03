@@ -12,7 +12,7 @@ export const getDocument = (coll, id) => doc(db, coll, id); //aquí se realiza u
 export const getCollection = (coll) => collection(db, coll);
 
 // // UPDATE DATA
-export const upDate = async (coll, id, data) => {
+export const updateData = async (coll, id, data) => {
   // referencia al documentos
   const docRef = getDocument(coll, id);
   // Metodo upadate acepta dos parametros 1 ref a un doc y la data
