@@ -6,7 +6,6 @@
   flex-direction: column;
   height: 240px;
   justify-content: center;
-  position: relative;
 
   /* FIXME:porq no se completa el 100% del ancho */
 }
@@ -29,9 +28,15 @@
   border-radius: 50px;
 }
 
+.text-area::first-letter {
+  display: block;
+  text-transform: uppercase;
+}
+
 .text-tweet {
   background-color: #2f112d;
   border: none;
+  display: block;
   margin-right: 5px;
   height: 125px;
   outline: none;
@@ -52,14 +57,13 @@
 
 .progress-wrapper {
   width: 340px;
-  position: relative;
 }
 
 .progress-bar {
   background-color: #00da76;
-  bottom: 6px;
+  bottom: 0px;
   height: 2px;
-  position: absolute;
+  transition: 0.2s ease;
 }
 
 .create-tweet-post {
@@ -99,6 +103,12 @@
   margin-right: 5px;
   outline: none;
   width: 80px;
+  transition: 0.4s ease;
+}
+
+.post-button:disabled {
+  background-color: #2f112d41;
+  cursor:initial;
 }
 
 .post-button:active {

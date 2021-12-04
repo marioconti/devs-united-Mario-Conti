@@ -5,7 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
 import { onSnapshot } from "firebase/firestore";
 import { deleteData, updateData } from "../../../Services/Operationes";
-import { getCollection, getDataById } from "../../../Services/Operationes";
+import { getCollection} from "../../../Services/Operationes";
 // import { ReactComponent as Like } from "../../../Assets/SVGS/like.svg";
 import { ReactComponent as Unlike } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
@@ -30,17 +30,19 @@ export const TweetList = () => {
     deleteData("tweets", id);
   };
 
-  // const handleLikes = async () => {
-  //   const likesCounter = likes ? likes + 1 : 1;
-  //   await updateData("tweets", id, { likes: likesCounter });
-  //   // return countLikes;
-  // };
+  // FIXME: no puedo seleccionar el corazón que toco para que al presionar se sume en la base de datos
+  // +1 y se cambie de color
+  const handleLike = async ({ tweet }) => {
+    const {likes, id} = tweet
+    const likesCounter = likes ? likes + 1 : 1;
+    await updateData("tweets", id, { likes: likesCounter });
+  };
 
   return (
     <div>
       {listaTweets.map((tweet) => {
         return (
-          <div className="tweet-container">
+          <div className="tweet-container" key={tweet.id}>
             <div className="image-profile">
               <img
                 src={tweet.photo}
@@ -69,12 +71,17 @@ export const TweetList = () => {
                 <p>{tweet.tweet}</p>
               </div>
               <div className="likes-container">
-                <button className="like-svg" onClick={() => {}}>
+                <button
+                  className="like-svg"
+                  onClick={() => {
+                    handleLike({ tweet });
+                  }}
+                >
                   <Unlike className="unlike" />
 
                   {/* <Like className="like" /> */}
                 </button>
-                <p>{}</p>
+                <p>{tweet.likes ? `${tweet.likes}` : ""}</p>
               </div>
             </div>
           </div>

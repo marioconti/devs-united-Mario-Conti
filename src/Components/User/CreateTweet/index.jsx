@@ -10,12 +10,10 @@ export const CreateTweet = () => {
   const [tweet, handleTweet, clearTweet] = useInput(null);
   const CHAR_LIMIT = 200;
 
+  // Fx que crea el objeto con la data que se agregará a la base de datos
   const handleSendTweet = async () => {
-    // Aquí creamos un objeto que corresponderá a la data que agregaremos a la colección
-
     // Aquí solo ponemos el nombre de la propiedad porque es el mismo que está en la base de datos
     // si aquí agregamos otra propiedad que no esté presente en la base de datos se agrega. Ej. id
-
     await addData("tweets", {
       tweet,
       name: displayName,
@@ -26,7 +24,15 @@ export const CreateTweet = () => {
     clearTweet();
   };
 
+  // Barra de progreso
   const calculatePercentage = () => (tweet.length / CHAR_LIMIT) * 100;
+
+  // Enviar tweet con ctrl + enter
+  const handleKeyPress = (e) => {
+    if (e.ctrlKey) {
+      if (e.code === "Enter") handleSendTweet();
+    }
+  };
 
   return (
     <form className="form-container" action="#">
@@ -38,6 +44,7 @@ export const CreateTweet = () => {
           <div className="text-area">
             <textarea
               className="text-tweet"
+              onKeyPress={handleKeyPress}
               onChange={handleTweet}
               type="text"
               value={tweet}
@@ -53,15 +60,14 @@ export const CreateTweet = () => {
           </div>
         </div>
         <div className="create-tweet-post">
-          <p className="counter-words">17</p>
+          <p className="counter-words">{tweet.length}</p>
           <p className="max-words">200 max.</p>
         </div>
         <button
           className="post-button"
           type="submit"
           onClick={handleSendTweet}
-
-          //FIXME: como hacemos que solo se pueda enviar si está completo { = 0 && "disabled"}. ¿Cómo accedo al valor de los inputos para hacer un condicional
+          disabled={tweet.length > 0 ? false : true}
         >
           POST
         </button>
