@@ -5,7 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
 import { onSnapshot } from "firebase/firestore";
 import { deleteData, updateData } from "../../../Services/Operationes";
-import { getCollection} from "../../../Services/Operationes";
+import { getCollection } from "../../../Services/Operationes";
 // import { ReactComponent as Like } from "../../../Assets/SVGS/like.svg";
 import { ReactComponent as Unlike } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
@@ -13,10 +13,12 @@ import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
   const { uid } = useContext(userContext);
+
   useEffect(() => {
     const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
       setListaTweets(
         data.docs.map((doc) => {
+          console.log(data.docs)
           return { ...doc.data(), id: doc.id };
         })
       );
@@ -33,7 +35,7 @@ export const TweetList = () => {
   // FIXME: no puedo seleccionar el corazón que toco para que al presionar se sume en la base de datos
   // +1 y se cambie de color
   const handleLike = async ({ tweet }) => {
-    const {likes, id} = tweet
+    const { likes, id } = tweet;
     const likesCounter = likes ? likes + 1 : 1;
     await updateData("tweets", id, { likes: likesCounter });
   };
@@ -61,6 +63,7 @@ export const TweetList = () => {
                 {uid === tweet.uid ? (
                   <button
                     className="trush-svg"
+                    title="Borrar tweet"
                     onClick={() => handleRemove(tweet.id)}
                   >
                     <Trush />
@@ -78,10 +81,11 @@ export const TweetList = () => {
                   }}
                 >
                   <Unlike className="unlike" />
-
                   {/* <Like className="like" /> */}
+                  {/* FIXME: ver como hacer para que no se cambien todos sino uno solo, tiene que ver con el uid?
+                  se puede controlar con reglas de seguridad? */}
                 </button>
-                <p>{tweet.likes ? `${tweet.likes}` : ""}</p>
+                <p>{tweet.likes ? `${tweet.likes}` : 0}</p>
               </div>
             </div>
           </div>

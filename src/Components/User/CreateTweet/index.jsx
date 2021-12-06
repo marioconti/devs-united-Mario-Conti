@@ -66,6 +66,7 @@ export const CreateTweet = () => {
         <button
           className="post-button"
           type="submit"
+          title="ENVIAR: CTRL + ENTER"
           onClick={handleSendTweet}
           disabled={tweet.length > 0 ? false : true}
         >

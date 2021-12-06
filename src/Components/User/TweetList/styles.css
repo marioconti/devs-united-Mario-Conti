@@ -54,7 +54,7 @@
   margin-right: auto;
 }
 
-.photo-profile{
+.photo-profile {
   border-radius: 50px;
   height: 40px;
   width: 40px;
@@ -64,6 +64,7 @@
   font-size: 12px;
   width: 340px;
   line-height: 18px;
+  word-wrap: break-Word;
 }
 
 .trush-svg {

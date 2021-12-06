@@ -6,18 +6,17 @@
 
 .logo-container,
 .section-credentials {
-  width:50%;
+  width: 50%;
 }
 
 .logo-container {
   align-items: center;
   display: flex;
   justify-content: center;
-  width: 650px;
 }
 
 .logo {
-  height: 265px;
+  height: 220px;
   margin-top: 20px;
 }
 
@@ -45,95 +44,19 @@
   font-weight: 700;
 }
 
+.titulo-signIn {
+  font-size: 28px;
+}
+
+.text-signIn {
+  font-size: 12px;
+}
+
 .button-google {
   cursor: pointer;
   margin-top: 20px;
   width: 50%;
 }
-/* ========================================================== */
-
-/* SECTION REGISTER */
-
-.welcome-text {
-  width: 100%;
-  letter-spacing: -0.333333px;
-}
-
-.welcome-text span {
-  color: #f50d5a;
-  letter-spacing: -0.333333px;
-}
-
-.type-username {
-  background-color: #150714;
-  border: none;
-  color: #914d8b;
-  height: 40px;
-  letter-spacing: -0.333333px;
-  margin: 30px 0;
-  outline: none;
-  padding-left: 15px;
-  width: 100%;
-}
-
-.type-username::placeholder {
-  color: #914d8b;
-}
-
-.text-favorite-color {
-  margin-top: 0px;
-  margin-bottom: 30px;
-  letter-spacing: -0.333333px;
-}
-
-.container-colors {
-  display: flex;
-  justify-content: space-between;
-}
-
-.box {
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-}
-
-.box:hover {
-  outline: #ffff 3px solid;
-}
-
-.red {
-  background-color: #f50d5a;
-}
-.orange {
-  background-color: #ff865c;
-}
-.yellow {
-  background-color: #ffea5c;
-}
-.green {
-  background-color: #00da76;
-}
-.blue {
-  background-color: #0096ce;
-}
-.purple {
-  background-color: #800fff;
-}
-
-.button-continue {
-  background-color: #00da76;
-  border: none;
-  cursor: pointer;
-  font-family: Silkscreen;
-  font-weight: 700;
-  font-size: 16px;
-  height: 40px;
-  line-height: 24px;
-  margin-top: 40px;
-  letter-spacing: -0.333333px;
-  width: 100%;
-}
-/* ========================================================== */
 
 .text-footer {
   bottom: -90px;
