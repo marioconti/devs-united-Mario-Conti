@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Register />
+      {/* <Register /> */}
       {!user ? <SignIn /> : <User />}
     </>
   );
