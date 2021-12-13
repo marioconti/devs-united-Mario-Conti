@@ -61,7 +61,6 @@
   outline: none;
   padding-left: 15px;
   width: 100%;
-  text-transform: capitalize;
 }
 
 .type-username::placeholder {
@@ -85,10 +84,14 @@
   cursor: pointer;
   height: 37px;
   width: 37px;
+ 
 }
 
-.box:hover {
+.box:hover{
   outline: #ffff 3px solid;
+}
+.box:active{
+  outline: rgb(212, 211, 211) 3px solid;
 }
 
 .red {

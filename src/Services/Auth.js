@@ -12,10 +12,9 @@ import { getDocument, getDataById } from "./Operationes";
 const provider = new GoogleAuthProvider();
 
 export const addUserToFirestore = async (user) => {
-  // FIXME:#123 Aquí traté de agregar la propiedad color, hay un bug aquí para hacer el renderizado condicional
-  const { uid, displayName, email, photoURL } = user;
+  const { uid, displayName, email, photoURL} = user;
   const docRef = getDocument("users", uid);
-  // FIXME: NO entiendo bien como funciona esto getDataById
+  
   // esto nos atrae el usuario para ver si esta en la base de datos?
   const userExist = await getDataById("users", uid);
   // si no está hacemos un setDoc con lo que queremos que tenga
@@ -24,7 +23,7 @@ export const addUserToFirestore = async (user) => {
       name: displayName,
       email: email,
       photo: photoURL,
-      // FIXME:#123 Aquí traté de agregar la propiedad color, hay un bug aquí para hacer el renderizado condicional,
+      uid,
     });
   }
 };
