@@ -12,16 +12,16 @@ import { getDocument, getDataById } from "./Operationes";
 const provider = new GoogleAuthProvider();
 
 export const addUserToFirestore = async (user) => {
-  const { uid, displayName, email, photoURL} = user;
+  const { uid, displayName, email, photoURL } = user;
   const docRef = getDocument("users", uid);
-  
+
   // esto nos atrae el usuario para ver si esta en la base de datos?
   const userExist = await getDataById("users", uid);
   // si no está hacemos un setDoc con lo que queremos que tenga
   if (!userExist) {
     await setDoc(docRef, {
-      name: displayName,
       email: email,
+      name: displayName,
       photo: photoURL,
       uid,
     });

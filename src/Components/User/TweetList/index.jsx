@@ -18,7 +18,6 @@ export const TweetList = () => {
     const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
       setListaTweets(
         data.docs.map((doc) => {
-          console.log(data.docs)
           return { ...doc.data(), id: doc.id };
         })
       );
@@ -31,7 +30,6 @@ export const TweetList = () => {
   const handleRemove = (id) => {
     deleteData("tweets", id);
   };
-
   // FIXME: no puedo seleccionar el corazón que toco para que al presionar se sume en la base de datos
   // +1 y se cambie de color
   const handleLike = async ({ tweet }) => {

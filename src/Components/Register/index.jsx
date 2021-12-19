@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "./styles.css";
 import { ReactComponent as Logo } from "../../Assets/SVGS/logo.svg";
 import { ReactComponent as TextFooter } from "../../Assets/SVGS/text-footer.svg";
@@ -7,34 +7,27 @@ import { updateData } from "../../Services/Operationes";
 import { userContext } from "../../Context/userProvider";
 import { User } from "../User";
 
+
 export const Register = () => {
   const { uid, color } = useContext(userContext);
   const [favoriteColor, setFavoriteColor] = useState("");
   const [nameUser, handleSendNameUser, clearNameUser] = useInput(null);
-  const [colorPicked, setColorPicked] = useState(false);
-
-  // const getColorData = async () => {
-  //   const getData = await getDataById("users", uid);
-  //   const colorData = getData.color;
-  //   console.log(colorData);
-  // };
-  // console.log(color);
-  // getColorData();
 
   const handlePickColor = (e) => {
     setFavoriteColor(e.nativeEvent.path[0].attributes.color.value);
   };
 
   const handleSendRegister = async () => {
-    await updateData("users", uid, { nameUser: nameUser, color: favoriteColor });
+    await updateData("users", uid, {
+      nameUser,
+      color: favoriteColor,
+    });
     clearNameUser();
-    setColorPicked(true);
   };
 
   return (
     <>
-      {/* FIXME: este condicional no anda, cuando actualizo vsigue mostrando todo el jsx y no el User */}
-      {!colorPicked && !color ? (
+      {!color ? (
         <div>
           <div className="login-container">
             <div className="logo-container">
@@ -92,7 +85,9 @@ export const Register = () => {
                 </div>
                 <button
                   className="button-continue"
-                  onClick={()=>{handleSendRegister()}}
+                  onClick={() => {
+                    handleSendRegister();
+                  }}
                   disabled={
                     nameUser.length > 0 && favoriteColor.length > 0
                       ? false
