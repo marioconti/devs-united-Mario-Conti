@@ -6,7 +6,7 @@ import { useInput } from "../../../Hooks/useInput";
 import { addData } from "../../../Services/Operationes";
 
 export const CreateTweet = () => {
-  const { displayName, photoURL, uid } = useContext(userContext);
+  const { displayName, photoURL, uid, color, nameUser } = useContext(userContext);
   const [tweet, handleTweet, clearTweet] = useInput(null);
   const CHAR_LIMIT = 200;
 
@@ -20,6 +20,8 @@ export const CreateTweet = () => {
       uid,
       photo: photoURL,
       likes: 0,
+      color,
+      nameUser
     });
     clearTweet();
   };

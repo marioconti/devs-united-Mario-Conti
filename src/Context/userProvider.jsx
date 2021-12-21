@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { onSnapshot } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
 import { handleAuthChange } from "../Services/Auth";
@@ -16,7 +17,7 @@ export const UserProvider = ({ children }) => {
 
   // Aquí se podría poner aparte también la data de la colección tweets? mientras no tenga el mismo nombre de nada q ya haya?
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   useEffect(async () => {
     let unSuscribeFromUser;
     const unsubscribe = await handleAuthChange((user) => {
