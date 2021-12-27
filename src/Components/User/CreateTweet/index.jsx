@@ -6,10 +6,13 @@ import { useInput } from "../../../Hooks/useInput";
 import { addData } from "../../../Services/Operationes";
 
 export const CreateTweet = () => {
-  const { displayName, photoURL, uid, color, nameUser } = useContext(userContext);
+  const { displayName, photoURL, uid, color, nameUser } =
+    useContext(userContext);
+  const user = useContext(userContext);
+  const dateCreation = user.metadata.createdAt;
+
   const [tweet, handleTweet, clearTweet] = useInput(null);
   const CHAR_LIMIT = 200;
-
   // Fx que crea el objeto con la data que se agregará a la base de datos
   const handleSendTweet = async () => {
     // Aquí solo ponemos el nombre de la propiedad porque es el mismo que está en la base de datos
@@ -21,7 +24,8 @@ export const CreateTweet = () => {
       photo: photoURL,
       likes: 0,
       color,
-      nameUser
+      nameUser,
+      dateCreation,
     });
     clearTweet();
   };

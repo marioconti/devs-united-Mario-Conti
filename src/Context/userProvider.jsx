@@ -14,10 +14,8 @@ export const UserProvider = ({ children }) => {
     onSnapshot(getDocument("users", user.uid), (data) => {
       setUser({ ...user, ...data.data() });
     });
-
   // Aquí se podría poner aparte también la data de la colección tweets? mientras no tenga el mismo nombre de nada q ya haya?
 
-  
   useEffect(async () => {
     let unSuscribeFromUser;
     const unsubscribe = await handleAuthChange((user) => {

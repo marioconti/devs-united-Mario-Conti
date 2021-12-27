@@ -18,7 +18,7 @@ export const TweetList = () => {
     const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
       setListaTweets(
         data.docs.map((doc) => {
-          return { ...doc.data(), id: doc.id};
+          return { ...doc.data(), id: doc.id };
         })
       );
     });
@@ -53,10 +53,14 @@ export const TweetList = () => {
             <div className="post-info">
               <div className="user-name-date">
                 <div className="flex-row">
-                  <a href="#" className="user-name" style={{backgroundColor: tweet.color}}>
+                  <a
+                    href="#"
+                    className="user-name"
+                    style={{ backgroundColor: tweet.color }}
+                  >
                     {tweet.nameUser}
                   </a>
-                  <p className="date">- 5 jun.</p>
+                  <p className="date">- {tweet.dateCreation}</p>
                 </div>
                 {uid === tweet.uid ? (
                   <button
