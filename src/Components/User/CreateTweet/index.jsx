@@ -8,11 +8,11 @@ import { addData } from "../../../Services/Operationes";
 export const CreateTweet = () => {
   const { displayName, photoURL, uid, color, nameUser } =
     useContext(userContext);
-  const user = useContext(userContext);
-  const dateCreation = user.metadata.createdAt;
+  const dateCreation = new Date().toLocaleDateString();
 
   const [tweet, handleTweet, clearTweet] = useInput(null);
   const CHAR_LIMIT = 200;
+
   // Fx que crea el objeto con la data que se agregará a la base de datos
   const handleSendTweet = async () => {
     // Aquí solo ponemos el nombre de la propiedad porque es el mismo que está en la base de datos
@@ -29,7 +29,6 @@ export const CreateTweet = () => {
     });
     clearTweet();
   };
-
   // Barra de progreso
   const calculatePercentage = () => (tweet.length / CHAR_LIMIT) * 100;
 
@@ -72,7 +71,7 @@ export const CreateTweet = () => {
         <button
           className="post-button"
           type="submit"
-          title="ENVIAR: CTRL + ENTER"
+          title="PRESS TO SEND: CTRL + ENTER"
           onClick={handleSendTweet}
           disabled={tweet.length > 0 ? false : true}
         >
