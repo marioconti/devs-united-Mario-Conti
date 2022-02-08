@@ -1,0 +1,27 @@
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.contain-nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin: 0 20px;
+  width: 400px;
+}
+
+.back {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
+  font-family: Silkscreen;
+  height: 40px;
+}
+
+.back-svg {
+  margin-right: 5px;
+}

@@ -1,6 +1,7 @@
 import { CreateTweet } from "./CreateTweet/index";
 import { TweetList } from "./TweetList/index";
 import { Nav } from "./Nav/index";
+import { Profile } from "./Profile";
 
 export const User = () => {
   return (
@@ -8,6 +9,7 @@ export const User = () => {
       <Nav />
       <CreateTweet />
       <TweetList />
+      {/* <Profile/> */}
     </>
   );
 };

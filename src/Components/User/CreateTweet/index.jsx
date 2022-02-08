@@ -22,7 +22,7 @@ export const CreateTweet = () => {
       name: displayName,
       uid,
       photo: photoURL,
-      likes: 0,
+      userLikes: [],
       color,
       nameUser,
       dateCreation,
@@ -44,7 +44,7 @@ export const CreateTweet = () => {
       <div className="creat-tweet-container">
         <div className="create-tweet-area">
           <div className="image-profile">
-            <img src={photoURL} className="photo-profile" alt="image profile" />
+            <img src={photoURL} className="photo-profile" alt="image profile"/>
           </div>
           <div className="text-area">
             <textarea

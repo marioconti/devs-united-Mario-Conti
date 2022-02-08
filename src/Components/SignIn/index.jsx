@@ -19,7 +19,7 @@ export const SignIn = () => {
               <br /> ipsum dolor
             </h1>
             <p className="text-signIn">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit
+              Lorem, ipsum dolor sit amet, consectetur adipisicing elit
             </p>
           </div>
           <SignInButton className="button-google" onClick={signIn} />

@@ -2,7 +2,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut as _signOut,
+  signOut,
 } from "firebase/auth";
 import { auth } from "./Firebase";
 import { setDoc } from "@firebase/firestore";
@@ -39,8 +39,8 @@ export const signIn = async () => {
   }
 };
 
-export const signOut = async () => {
-  await _signOut(auth);
+export const logOut = async () => {
+  await signOut(auth);
 };
 
 export const handleAuthChange = async (callback) => {

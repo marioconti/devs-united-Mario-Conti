@@ -1,0 +1,26 @@
+.logout {
+  align-items: center;
+  background-color: #f50d5a;
+  border: none;
+  color: #250c23;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Silkscreen;
+  height: 26px;
+  justify-content: center;
+  letter-spacing: -0.4px;
+  text-align: center;
+  width: 90px;
+}
+
+.cuadraditoLogout {
+  margin-left: 5px;
+  height: 12px;
+  width: 12px;
+}
+
+.logout:active {
+  background-color: #9b123fda;
+}
