@@ -3,7 +3,7 @@
 import "./styles.css";
 import { useEffect, useState, useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
-import { onSnapshot } from "firebase/firestore";
+import { onSnapshot, arrayRemove } from "firebase/firestore";
 import { deleteData, updateData } from "../../../Services/Operationes";
 import { getCollection } from "../../../Services/Operationes";
 import { ReactComponent as Heart } from "../../../Assets/SVGS/like.svg";
@@ -13,8 +13,9 @@ import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
   const [deleteBox, setDeleteBox] = useState(false);
-  const [like, setLike] = useState(false);
   const { uid } = useContext(userContext);
+
+  console.log(listaTweets);
 
   useEffect(() => {
     const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
@@ -37,21 +38,29 @@ export const TweetList = () => {
   const handleDelete = () => {
     setDeleteBox(true);
   };
-  const handleLike = async ({ tweet }) => {
-    const { userLikes, id } = tweet;
-    const updateUserLikes = [...userLikes, uid];
 
-    // !like
-    // ?
-    await updateData("tweets", id, { userLikes: updateUserLikes });
-    // :
-    setLike(!like);
-    console.log(tweet);
+  const handleLike = async ({ tweet }) => {
+    const { userLikes, likes, id } = tweet;
+    const updateUserLikes = [...userLikes, uid];
+    const updateLikes = likes;
+
+    if (userLikes.includes(uid)) {
+      await updateData("tweets", id, {
+        userLikes: arrayRemove(uid),
+        likes: updateLikes - 1,
+      });
+    } else {
+      await updateData("tweets", id, {
+        userLikes: updateUserLikes,
+        likes: updateLikes + 1,
+      });
+    }
   };
 
   return (
     <div className="container-tweet-list">
       {listaTweets.map((tweet) => {
+      
         return (
           <div className="tweet-container" key={tweet.id}>
             <div className="image-profile">
@@ -77,19 +86,30 @@ export const TweetList = () => {
                   <button
                     className="trush-svg"
                     title="Borrar tweet"
+                    // FIXME: aquí a la función hay que ver de pasarle los parametros que condiconen que solo sea para ese tweet. Algo parecido a como está en el otro proyecto
                     onClick={() => handleDelete()}
                   >
                     <Trush />
                   </button>
                 ) : null}
               </div>
-              {deleteBox &&(
+              {deleteBox && (
                 <div className="delete-message">
                   <div className="texto-aviso">
                     If you press delete the tweet will be deleted permanently
                   </div>
-                  <button className="botton delete" onClick={() => handleRemove(tweet.id)}>Delete</button>
-                  <button className="botton" onClick={()=>setDeleteBox(false)}>Cancel</button>
+                  <button
+                    className="botton delete"
+                    onClick={() => handleRemove(tweet.id)}
+                  >
+                    Delete
+                  </button>
+                  <button
+                    className="botton"
+                    onClick={() => setDeleteBox(false)}
+                  >
+                    Cancel
+                  </button>
                 </div>
               )}
               <div className="tweet-post">
@@ -102,14 +122,13 @@ export const TweetList = () => {
                     handleLike({ tweet });
                   }}
                 >
-                  {tweet.likes >= 1 ? (
-                    <Heart className="like" />
-                  ) : (
+                  {tweet.likes === 0 ? (
                     <UnHeart className="unlike" />
+                  ) : (
+                    <Heart className="like" />
                   )}
-                  {/* si el numero es mayor a 0 el corazón se pone rojo, sino no. Para el contador hacer .lenght del array */}
                 </button>
-                <p>{tweet.likes ? tweet.likes : 0}</p>
+                <p className={tweet.likes > 0 && "favorite"}>{tweet.likes}</p>
               </div>
             </div>
           </div>

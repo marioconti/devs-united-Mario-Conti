@@ -32,15 +32,16 @@
   display: flex;
 }
 .user-name {
-  display: flex;
   align-items: center;
+  border-bottom-left-radius: 2px;
+  display: flex;
   font-family: Silkscreen;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
   height: 25px;
-  margin: auto;
   letter-spacing: -0.333334px;
+  margin: auto;
   padding: 5px;
 }
 
@@ -105,8 +106,12 @@
 }
 
 .likes-container p {
-  margin-left: 5px;
+  margin-left: 0px;
   font-size: 10px;
+}
+
+.favorite {
+  color: #F50D5A;
 }
 
 /* ============================ */

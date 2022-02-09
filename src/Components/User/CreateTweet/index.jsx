@@ -23,6 +23,7 @@ export const CreateTweet = () => {
       uid,
       photo: photoURL,
       userLikes: [],
+      likes:0,
       color,
       nameUser,
       dateCreation,
