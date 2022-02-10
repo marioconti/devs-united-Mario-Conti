@@ -28,11 +28,12 @@
 }
 
 .sections-container {
-  text-align: center;
+  bottom: 0;
   display: flex;
   justify-content: space-around;
   position: absolute;
-  bottom: 0;
+  text-align: center;
+  user-select: none;
   width: 400px;
 }
 
@@ -50,7 +51,7 @@
   width: 50%;
 }
 
-.section:hover {
-  color: #4d1e49;
+.active {
   background-color: #150714;
+  color: #4d1e49;
 }

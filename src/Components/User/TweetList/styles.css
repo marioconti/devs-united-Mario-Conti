@@ -89,20 +89,22 @@
 .likes-container {
   display: flex;
   margin-right: auto;
+  width: auto;
 }
 
 .like-svg {
   background-color: inherit;
   border: none;
+  padding: 0;
 }
 
 .like-svg .like,
 .like-svg .unlike {
   outline: none;
   display: flex;
-  align-items: center;
-  width: 16px;
-  height: auto;
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
 }
 
 .likes-container p {
@@ -114,3 +116,6 @@
   color: #f50d5a;
 }
 
+.cursor {
+  cursor: pointer;
+}

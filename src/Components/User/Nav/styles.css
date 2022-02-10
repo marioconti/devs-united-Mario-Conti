@@ -17,10 +17,12 @@
   height: 25px;
   width: 90px;
 }
+
 .photo {
   border-radius: 50px;
-  margin-left: 15px;
   border: 2px solid ;
+  cursor:pointer;
+  margin-left: 15px;
   height: 25px;
   width: 25px;
 }

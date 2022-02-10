@@ -10,7 +10,12 @@ import { ReactComponent as UnHeart } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
 import { handleDelete } from "./functions";
 import { handleLike } from "./functions";
-export const TweetList = () => {
+
+export const TweetList = ({
+  setShowProfile,
+  setShowPosts,
+  setShowFavorites,
+}) => {
   const [listaTweets, setListaTweets] = useState([]);
   const { uid } = useContext(userContext);
 
@@ -27,12 +32,21 @@ export const TweetList = () => {
     };
   }, []);
 
+  const handleInProfile = () => {
+    setShowProfile(true);
+    setShowPosts(true);
+    setShowFavorites(false);
+  };
+
   return (
     <div className="container-tweet-list">
       {listaTweets.map((tweet) => {
         return (
           <div className="tweet-container" key={tweet.id}>
-            <div className="image-profile">
+            <div
+              onClick={uid === tweet.uid ? handleInProfile : null}
+              className={`${uid === tweet.uid && "cursor"} image-profile`}
+            >
               <img
                 src={tweet.photo}
                 className="photo-profile"
@@ -42,16 +56,15 @@ export const TweetList = () => {
             <div className="post-info">
               <div className="user-name-date">
                 <div className="flex-row">
-                  <a
-                    href="#"
+                  <div
                     className="user-name"
                     style={{ backgroundColor: tweet.color }}
                   >
                     {tweet.nameUser}
-                  </a>
+                  </div>
                   <p className="date">- {tweet.dateCreation}</p>
                 </div>
-                {uid === tweet.uid ? (
+                {uid === tweet.uid && (
                   <button
                     className="trush-svg"
                     title="Borrar tweet"
@@ -59,7 +72,7 @@ export const TweetList = () => {
                   >
                     <Trush />
                   </button>
-                ) : null}
+                )}
               </div>
               <div className="tweet-post">
                 <p>{tweet.tweet}</p>
@@ -71,13 +84,13 @@ export const TweetList = () => {
                     handleLike({ tweet }, uid);
                   }}
                 >
-                  {tweet.likes === 0 ? (
-                    <UnHeart className="unlike" />
-                  ) : (
+                  {tweet.userLikes.includes(uid) ? (
                     <Heart className="like" />
+                  ) : (
+                    <UnHeart className="unlike" />
                   )}
                 </button>
-                <p className={tweet.likes > 0 ? "favorite" : ""}>
+                <p className={tweet.userLikes.includes(uid) ? "favorite" : ""}>
                   {tweet.likes}
                 </p>
               </div>
