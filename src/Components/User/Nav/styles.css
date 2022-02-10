@@ -36,6 +36,7 @@
 .text-nav span {
   font-family: Silkscreen;
   font-size: 10px;
+  margin-right: 2px;
 }
 
 .text-nav {

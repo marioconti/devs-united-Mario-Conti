@@ -1,0 +1,14 @@
+.swal-modal {
+    background-color: #60265bf1;
+    border: 3px solid white;
+  }
+  
+  .swal-text,.swal-title {
+    color: #ffffff;
+    font-family: Silkscreen;
+    text-align: center;
+  }
+  
+  .swal-button {
+    font-family: Silkscreen;
+  }

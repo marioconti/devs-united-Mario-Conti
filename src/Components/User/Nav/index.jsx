@@ -10,9 +10,14 @@ export const Nav = () => {
   return (
     <div className="nav">
       <div className="contain-nav">
-          {/* esto tiene q hacer el link hacia el profile */}
+        {/* esto tiene q hacer el link hacia el profile */}
         <a href="#" className="image">
-          <img src={photoURL} className="photo" alt="profile image" style={{ borderColor: `${color}` }} />
+          <img
+            src={photoURL}
+            className="photo"
+            alt="profile image"
+            style={{ borderColor: `${color}` }}
+          />
         </a>
         <a className="logo-nav" href="#">
           <Logonav className="logo-svg" />

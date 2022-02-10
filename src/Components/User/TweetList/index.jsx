@@ -3,19 +3,16 @@
 import "./styles.css";
 import { useEffect, useState, useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
-import { onSnapshot, arrayRemove } from "firebase/firestore";
-import { deleteData, updateData } from "../../../Services/Operationes";
+import { onSnapshot } from "firebase/firestore";
 import { getCollection } from "../../../Services/Operationes";
 import { ReactComponent as Heart } from "../../../Assets/SVGS/like.svg";
 import { ReactComponent as UnHeart } from "../../../Assets/SVGS/unlike.svg";
 import { ReactComponent as Trush } from "../../../Assets/SVGS/trush.svg";
-
+import { handleDelete } from "./functions";
+import { handleLike } from "./functions";
 export const TweetList = () => {
   const [listaTweets, setListaTweets] = useState([]);
-  const [deleteBox, setDeleteBox] = useState(false);
   const { uid } = useContext(userContext);
-
-  console.log(listaTweets);
 
   useEffect(() => {
     const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
@@ -30,37 +27,9 @@ export const TweetList = () => {
     };
   }, []);
 
-  const handleRemove = (id) => {
-    deleteData("tweets", id);
-    setDeleteBox(false);
-  };
-
-  const handleDelete = () => {
-    setDeleteBox(true);
-  };
-
-  const handleLike = async ({ tweet }) => {
-    const { userLikes, likes, id } = tweet;
-    const updateUserLikes = [...userLikes, uid];
-    const updateLikes = likes;
-
-    if (userLikes.includes(uid)) {
-      await updateData("tweets", id, {
-        userLikes: arrayRemove(uid),
-        likes: updateLikes - 1,
-      });
-    } else {
-      await updateData("tweets", id, {
-        userLikes: updateUserLikes,
-        likes: updateLikes + 1,
-      });
-    }
-  };
-
   return (
     <div className="container-tweet-list">
       {listaTweets.map((tweet) => {
-      
         return (
           <div className="tweet-container" key={tweet.id}>
             <div className="image-profile">
@@ -86,32 +55,12 @@ export const TweetList = () => {
                   <button
                     className="trush-svg"
                     title="Borrar tweet"
-                    // FIXME: aquí a la función hay que ver de pasarle los parametros que condiconen que solo sea para ese tweet. Algo parecido a como está en el otro proyecto
-                    onClick={() => handleDelete()}
+                    onClick={() => handleDelete(tweet.id)}
                   >
                     <Trush />
                   </button>
                 ) : null}
               </div>
-              {deleteBox && (
-                <div className="delete-message">
-                  <div className="texto-aviso">
-                    If you press delete the tweet will be deleted permanently
-                  </div>
-                  <button
-                    className="botton delete"
-                    onClick={() => handleRemove(tweet.id)}
-                  >
-                    Delete
-                  </button>
-                  <button
-                    className="botton"
-                    onClick={() => setDeleteBox(false)}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              )}
               <div className="tweet-post">
                 <p>{tweet.tweet}</p>
               </div>
@@ -119,7 +68,7 @@ export const TweetList = () => {
                 <button
                   className="like-svg"
                   onClick={() => {
-                    handleLike({ tweet });
+                    handleLike({ tweet }, uid);
                   }}
                 >
                   {tweet.likes === 0 ? (
@@ -128,7 +77,9 @@ export const TweetList = () => {
                     <Heart className="like" />
                   )}
                 </button>
-                <p className={tweet.likes > 0 && "favorite"}>{tweet.likes}</p>
+                <p className={tweet.likes > 0 ? "favorite" : ""}>
+                  {tweet.likes}
+                </p>
               </div>
             </div>
           </div>

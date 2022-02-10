@@ -111,40 +111,6 @@
 }
 
 .favorite {
-  color: #F50D5A;
+  color: #f50d5a;
 }
 
-/* ============================ */
-/* DELETE MESSAGE */
-.delete-message {
-  background-color: #150714f3;
-  border-radius: 15px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  padding: 40px;
-  text-align: center;
-  width: 400px;
-  z-index: 10;
-}
-
-.texto-aviso,
-.botton-delete {
-  font-family: Silkscreen;
-}
-
-.botton {
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 5px;
-  margin-top: 13px;
-  height: 30px;
-  background-color: #150714f3;
-}
-
-.delete {
-  background-color: #e81047;
-}

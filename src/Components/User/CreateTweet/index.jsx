@@ -9,9 +9,9 @@ export const CreateTweet = () => {
   const { displayName, photoURL, uid, color, nameUser } =
     useContext(userContext);
   const dateCreation = new Date().toLocaleDateString();
-
   const [tweet, handleTweet, clearTweet] = useInput(null);
   const CHAR_LIMIT = 200;
+
 
   // Fx que crea el objeto con la data que se agregará a la base de datos
   const handleSendTweet = async () => {
