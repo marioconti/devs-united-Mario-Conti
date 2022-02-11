@@ -7,7 +7,6 @@ import { updateData } from "../../Services/Operationes";
 import { userContext } from "../../Context/userProvider";
 import { User } from "../User";
 
-
 export const Register = () => {
   const { uid, color } = useContext(userContext);
   const [favoriteColor, setFavoriteColor] = useState("");
