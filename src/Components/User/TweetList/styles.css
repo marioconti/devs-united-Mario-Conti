@@ -119,3 +119,16 @@
 .cursor {
   cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+  .tweet-container {
+    width: 320px;
+  }
+  .user-name-date,
+  .tweet-post {
+    width: 250px;
+  }
+
+  
+
+}

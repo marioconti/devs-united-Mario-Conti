@@ -13,15 +13,15 @@
   width: 400px;
 }
 
-.image{
+.image {
   height: 25px;
   width: 90px;
 }
 
 .photo {
   border-radius: 50px;
-  border: 2px solid ;
-  cursor:pointer;
+  border: 2px solid;
+  cursor: pointer;
   margin-left: 15px;
   height: 25px;
   width: 25px;
@@ -48,4 +48,10 @@
 
 .text-nav span {
   font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  .contain-nav {
+    width: 360px;
+  }
 }

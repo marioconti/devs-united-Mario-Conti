@@ -179,9 +179,3 @@
     letter-spacing: -0.333333px;
   }
 }
-
-@media screen and (max-width: 330) {
-  .text-footer{
-    background-color: #0096ce;
-  }
-}

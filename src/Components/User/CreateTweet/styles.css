@@ -1,4 +1,4 @@
-.form-container{
+.form-container {
   align-items: center;
   background-color: #150714;
   border-bottom: 2px solid #60265b;
@@ -106,10 +106,21 @@
 
 .post-button:disabled {
   background-color: #2f112d41;
-  cursor:initial;
+  cursor: initial;
 }
 
 .post-button:active {
   background-color: #00da76;
   color: #fff;
+}
+
+@media screen and (max-width: 900px) {
+  .creat-tweet-container {
+    width: 320px;
+  }
+  .text-tweet,
+  .progress-wrapper,
+  .create-tweet-post {
+    width: 250px;
+  }
 }
