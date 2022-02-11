@@ -55,3 +55,9 @@
   background-color: #150714;
   color: #4d1e49;
 }
+
+@media screen and (max-width: 900px) {
+  .sections-container {
+    width: 320px;
+  }
+}

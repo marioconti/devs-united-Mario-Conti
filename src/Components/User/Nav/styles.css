@@ -52,6 +52,10 @@
 
 @media screen and (max-width: 900px) {
   .contain-nav {
-    width: 360px;
+    width: 330px;
+  }
+
+  .photo {
+    margin-left: 38px;
   }
 }

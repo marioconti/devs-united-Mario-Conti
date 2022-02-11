@@ -25,3 +25,8 @@
 .back-svg {
   margin-right: 5px;
 }
+@media screen and (max-width: 900px) {
+  .contain-nav {
+    width: 320px;
+  }
+}
