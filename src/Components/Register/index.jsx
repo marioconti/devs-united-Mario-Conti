@@ -101,7 +101,6 @@ export const Register = () => {
               </p>
             </div>
           </div>
-          <div className="footer-signIn"></div>
         </div>
       ) : (
         <User />

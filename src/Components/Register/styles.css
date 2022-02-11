@@ -131,12 +131,6 @@
 }
 /* ========================================================== */
 
-.text-footer {
-  /* bottom: -220px; */
-  height: 40px;
-  /* position: absolute; */
-}
-
 @font-face {
   font-family: Silkscreen;
   src: url(../../Assets//Fonts/Silkscreen/slkscr.ttf);
@@ -168,6 +162,11 @@
     width: 80%;
   }
 
+  .box {
+    height: 30px;
+    width: 30px;
+  }
+
   .favorite-color {
     align-items: flex-start;
     width: 80%;
@@ -179,7 +178,10 @@
     margin-bottom: 10px;
     letter-spacing: -0.333333px;
   }
-  .text-footer {
-    height: 15px;
+}
+
+@media screen and (max-width: 330) {
+  .text-footer{
+    background-color: #0096ce;
   }
 }
