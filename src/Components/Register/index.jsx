@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./styles.css";
 import { ReactComponent as Logo } from "../../Assets/SVGS/logo.svg";
-import { ReactComponent as TextFooter } from "../../Assets/SVGS/text-footer.svg";
 import { useInput } from "../../Hooks/useInput";
 import { updateData } from "../../Services/Operationes";
 import { userContext } from "../../Context/userProvider";
@@ -96,7 +95,10 @@ export const Register = () => {
                   CONTINUE
                 </button>
               </div>
-              <TextFooter className="text-footer" />
+              <p className="text-footer">
+                © 2022 Devs_United by <br />
+                Mario A Conti - <span>BETA</span>
+              </p>
             </div>
           </div>
           <div className="footer-signIn"></div>

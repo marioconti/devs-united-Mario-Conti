@@ -2,7 +2,6 @@ import React from "react";
 import "./styles.css";
 import { ReactComponent as Logo } from "../../Assets/SVGS/logo.svg";
 import { ReactComponent as SignInButton } from "../../Assets/SVGS/sing-in-google.svg";
-import { ReactComponent as TextFooter } from "../../Assets/SVGS/text-footer.svg";
 import { signIn } from "../../Services/Auth";
 
 export const SignIn = () => {
@@ -24,11 +23,12 @@ export const SignIn = () => {
               developer!!
             </p>
             <SignInButton className="button-google" onClick={signIn} />
+            <p className="text-footer">
+              © 2022 Devs_United by <br /> Mario A Conti - <span>BETA</span>
+            </p>
           </div>
-          <TextFooter className="text-footer" />
         </div>
       </div>
-      <div className="footer-signIn"></div>
     </>
   );
 };

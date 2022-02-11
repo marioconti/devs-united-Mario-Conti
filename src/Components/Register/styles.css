@@ -132,9 +132,9 @@
 /* ========================================================== */
 
 .text-footer {
-  bottom: -220px;
-  height: 12px;
-  position: absolute;
+  /* bottom: -220px; */
+  height: 40px;
+  /* position: absolute; */
 }
 
 @font-face {
@@ -157,10 +157,6 @@
     width: 80%;
   }
 
-  .text-footer {
-    height: 15px;
-    bottom: -100px;
-  }
   .welcome-text {
     width: 80%;
   }
@@ -182,5 +178,8 @@
     font-size: 13px;
     margin-bottom: 10px;
     letter-spacing: -0.333333px;
+  }
+  .text-footer {
+    height: 15px;
   }
 }

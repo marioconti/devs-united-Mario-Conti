@@ -26,6 +26,7 @@
 }
 
 .titulo-signIn {
+  margin-top: auto;
   font-size: 34px;
   line-height: 45px;
 }
@@ -40,6 +41,17 @@
   cursor: pointer;
   margin-top: 10px;
   width: 100%;
+}
+
+.text-footer,
+.text-footer span {
+  font-size: 13px;
+  color: #60265b;
+  text-align: center;
+  margin: 50px 0;
+}
+.text-footer span {
+  color: #f50d5a;
 }
 
 @font-face {
