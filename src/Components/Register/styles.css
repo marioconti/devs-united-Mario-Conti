@@ -28,7 +28,6 @@
   position: relative;
 }
 
-.container-contain,
 .favorite-color {
   align-items: flex-start;
   width: 50%;
@@ -45,7 +44,6 @@
   width: 100%;
   letter-spacing: -0.333333px;
 }
-
 .welcome-text span {
   color: #f50d5a;
   letter-spacing: -0.333333px;
@@ -84,13 +82,12 @@
   cursor: pointer;
   height: 37px;
   width: 37px;
- 
 }
 
-.box:hover{
+.box:hover {
   outline: #ffff 3px solid;
 }
-.box:active{
+.box:active {
   outline: rgb(212, 211, 211) 3px solid;
 }
 
@@ -135,7 +132,7 @@
 /* ========================================================== */
 
 .text-footer {
-  bottom: -90px;
+  bottom: -220px;
   height: 12px;
   position: absolute;
 }
@@ -143,4 +140,47 @@
 @font-face {
   font-family: Silkscreen;
   src: url(../../Assets//Fonts/Silkscreen/slkscr.ttf);
+}
+@media screen and (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+    height: 720px;
+    width: 80%;
+  }
+
+  .section-credentials {
+    width: 100%;
+  }
+
+  .logo-container {
+    margin-top: 20px;
+    width: 80%;
+  }
+
+  .text-footer {
+    height: 15px;
+    bottom: -100px;
+  }
+  .welcome-text {
+    width: 80%;
+  }
+  .welcome-text span {
+    font-size: 35px;
+  }
+
+  .type-username {
+    width: 80%;
+  }
+
+  .favorite-color {
+    align-items: flex-start;
+    width: 80%;
+  }
+
+  .text-favorite-color {
+    margin-top: 10px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    letter-spacing: -0.333333px;
+  }
 }

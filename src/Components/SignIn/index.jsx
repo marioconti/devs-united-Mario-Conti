@@ -15,14 +15,16 @@ export const SignIn = () => {
         <div className="section-credentials">
           <div className="container-contain">
             <h1 className="titulo-signIn">
-              Lorem
-              <br /> ipsum dolor
+              Welcome!
+              <br />
+              to my social network 💻
             </h1>
             <p className="text-signIn">
-              Lorem, ipsum dolor sit amet, consectetur adipisicing elit
+              My name is Mario Conti and this is my final project as a frontend
+              developer!!
             </p>
+            <SignInButton className="button-google" onClick={signIn} />
           </div>
-          <SignInButton className="button-google" onClick={signIn} />
           <TextFooter className="text-footer" />
         </div>
       </div>

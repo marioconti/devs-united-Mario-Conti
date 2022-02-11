@@ -6,39 +6,13 @@
   width: 80%;
 }
 
-.logo-container,
 .section-credentials {
-  width: 50%;
-}
-
-.logo-container {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.logo {
-  height: 220px;
-  margin-top: 20px;
-}
-
-.section-credentials{
   height: 240px;
-}
-
-.section-credentials,
-.container-contain {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  position: relative;
 }
 
 /* SECTION LOGIN */
 
-.container-contain,
-.favorite-color {
-  align-items: flex-start;
+.container-contain {
   width: 50%;
 }
 
@@ -48,30 +22,57 @@
   font-family: Silkscreen;
   font-size: 40px;
   font-weight: 700;
+  margin-right: auto;
 }
 
 .titulo-signIn {
-  font-size: 28px;
+  font-size: 34px;
+  line-height: 45px;
 }
 
 .text-signIn {
-  font-size: 12px;
-  width: 80%;
+  font-size: 14px;
+  margin-right: auto;
+  width: 100%;
 }
 
 .button-google {
   cursor: pointer;
-  margin-top: 20px;
-  width: 50%;
-}
-
-.text-footer {
-  bottom: -90px;
-  height: 12px;
-  position: absolute;
+  margin-top: 10px;
+  width: 100%;
 }
 
 @font-face {
   font-family: Silkscreen;
   src: url(../../Assets//Fonts/Silkscreen/slkscr.ttf);
+}
+
+@media screen and (max-width: 900px) {
+  .section-credentials {
+    height: 250px;
+    margin-top: 50px;
+  }
+
+  .container-contain {
+    width: 100%;
+  }
+
+  .titulo-signIn,
+  .welcome-text,
+  .welcome-text span {
+    font-size: 35px;
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .text-signIn {
+    font-size: 15px;
+    margin: 25px auto;
+    width: 80%;
+  }
+
+  .button-google {
+    cursor: pointer;
+    width: 80%;
+  }
 }
