@@ -12,7 +12,7 @@ export const Register = () => {
   const [nameUser, handleSendNameUser, clearNameUser] = useInput(null);
 
   const handlePickColor = (e) => {
-    setFavoriteColor(e.nativeEvent.path[0].attributes.color.value);
+    setFavoriteColor(e.target.attributes.color.nodeValue);
   };
 
   const handleSendRegister = async () => {
