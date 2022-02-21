@@ -40,7 +40,7 @@ export const TweetList = ({
 
   return (
     <div className="container-tweet-list">
-      {listaTweets.reverse().map((tweet) => {
+      {listaTweets.map((tweet) => {
           return (
             <div className="tweet-container" key={tweet.id}>
               <div
