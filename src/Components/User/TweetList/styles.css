@@ -71,6 +71,10 @@
   word-wrap: break-Word;
 }
 
+.tweet-post::first-letter {
+  text-transform: uppercase;
+}
+
 .trush-svg {
   align-items: center;
   background-color: rgba(0, 128, 0, 0);
