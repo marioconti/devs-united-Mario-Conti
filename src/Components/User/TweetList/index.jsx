@@ -3,7 +3,7 @@
 import "./styles.css";
 import { useEffect, useState, useContext } from "react";
 import { userContext } from "../../../Context/userProvider";
-import { onSnapshot, orderBy } from "firebase/firestore";
+import { onSnapshot } from "firebase/firestore";
 import { getCollection } from "../../../Services/Operationes";
 import { ReactComponent as Heart } from "../../../Assets/SVGS/like.svg";
 import { ReactComponent as UnHeart } from "../../../Assets/SVGS/unlike.svg";
@@ -22,7 +22,7 @@ export const TweetList = ({
   useEffect(() => {
     const unSuscribe = onSnapshot(getCollection("tweets"), (data) => {
       setListaTweets(
-        data.docs.map((doc) => {
+        data.docs.reverse().map((doc) => {
           return { ...doc.data(), id: doc.id };
         })
       );
@@ -40,7 +40,7 @@ export const TweetList = ({
 
   return (
     <div className="container-tweet-list">
-      {listaTweets.map((tweet) => {
+      {listaTweets.reverse().map((tweet) => {
           return (
             <div className="tweet-container" key={tweet.id}>
               <div
