@@ -8,7 +8,7 @@ import { addData } from "../../../Services/Operationes";
 export const CreateTweet = () => {
   const { displayName, photoURL, uid, color, nameUser } =
     useContext(userContext);
-  const dateCreation = new Date().toLocaleDateString();
+  const dateCreation = new Date().toLocaleDateString("es-AR", { timeZone: "UTC" });
   const [tweet, handleTweet, clearTweet] = useInput(null);
   const CHAR_LIMIT = 200;
 

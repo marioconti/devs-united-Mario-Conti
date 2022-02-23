@@ -41,65 +41,63 @@ export const TweetList = ({
   return (
     <div className="container-tweet-list">
       {listaTweets.map((tweet) => {
-          return (
-            <div className="tweet-container" key={tweet.id}>
-              <div
-                onClick={uid === tweet.uid ? handleInProfile : null}
-                className={`${uid === tweet.uid && "cursor"} image-profile`}
-              >
-                <img
-                  src={tweet.photo}
-                  className="photo-profile"
-                  alt="profile image"
-                />
-              </div>
-              <div className="post-info">
-                <div className="user-name-date">
-                  <div className="flex-row">
-                    <div
-                      className="user-name"
-                      style={{ backgroundColor: tweet.color }}
-                    >
-                      {tweet.nameUser}
-                    </div>
-                    <p className="date">- {tweet.dateCreation}</p>
+        return (
+          <div className="tweet-container" key={tweet.id}>
+            <div
+              onClick={uid === tweet.uid ? handleInProfile : null}
+              className={`${uid === tweet.uid && "cursor"} image-profile`}
+            >
+              <img
+                src={tweet.photo}
+                className="photo-profile"
+                alt="profile image"
+              />
+            </div>
+            <div className="post-info">
+              <div className="user-name-date">
+                <div className="flex-row">
+                  <div
+                    className="user-name"
+                    style={{ backgroundColor: tweet.color }}
+                  >
+                    {tweet.nameUser}
                   </div>
-                  {uid === tweet.uid && (
-                    <button
-                      className="trush-svg"
-                      title="Borrar tweet"
-                      onClick={() => handleDelete(tweet.id)}
-                    >
-                      <Trush />
-                    </button>
-                  )}
+                  <p className="date">- {tweet.dateCreation}</p>
                 </div>
-                <div className="tweet-post">
-                  <p>{tweet.tweet}</p>
-                </div>
-                <div className="likes-container">
+                {uid === tweet.uid && (
                   <button
-                    className="like-svg"
-                    onClick={() => {
-                      handleLike({ tweet }, uid);
-                    }}
+                    className="trush-svg"
+                    title="Borrar tweet"
+                    onClick={() => handleDelete(tweet.id)}
                   >
-                    {tweet.userLikes.includes(uid) ? (
-                      <Heart className="like" />
-                    ) : (
-                      <UnHeart className="unlike" />
-                    )}
+                    <Trush />
                   </button>
-                  <p
-                    className={tweet.userLikes.includes(uid) ? "favorite" : ""}
-                  >
-                    {tweet.likes}
-                  </p>
-                </div>
+                )}
+              </div>
+              <div className="tweet-post">
+                <p>{tweet.tweet}</p>
+              </div>
+              <div className="likes-container">
+                <button
+                  className="like-svg"
+                  onClick={() => {
+                    handleLike({ tweet }, uid);
+                  }}
+                >
+                  {tweet.userLikes.includes(uid) ? (
+                    <Heart className="like" />
+                  ) : (
+                    <UnHeart className="unlike" />
+                  )}
+                </button>
+                <p className={tweet.userLikes.includes(uid) ? "favorite" : ""}>
+                  {tweet.likes}
+                </p>
               </div>
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
     </div>
   );
 };
